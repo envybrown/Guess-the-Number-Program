@@ -10,11 +10,10 @@ int main()
     //generate random number
     
     srand(time(0));
-    int ranNum = rand()%101;
+    int ranNum = rand()%100 + 1;
     
     //present game to user 
-    
-    cout<< ranNum << endl;
+
     cout<<"Guess the number (1-100)!\nI will tell you if you need to go higher or lower.\n\n";
     int guess=0;
 
