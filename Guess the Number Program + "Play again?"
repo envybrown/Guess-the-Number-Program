@@ -6,15 +6,13 @@ using namespace std;
 
 int main()
 {
-    
-    char y, n;
+    srand(time(0));
     char answer;
     
 do{
     
     //generate random number
     
-    srand(time(0));
     int ranNum = rand()%100 + 1;
     
     //present game to user 
@@ -51,7 +49,7 @@ cin>>answer;
 
     //repeat game if yes 
 
-}while (answer==y);
+}while (answer=='y'||answer=='Y');
 
     return 0;
 }
