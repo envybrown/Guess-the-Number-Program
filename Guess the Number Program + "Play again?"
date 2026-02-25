@@ -1,0 +1,57 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+int main()
+{
+    
+    char y, n;
+    char answer;
+    
+do{
+    
+    //generate random number
+    
+    srand(time(0));
+    int ranNum = rand()%100 + 1;
+    
+    //present game to user 
+    
+    cout<<"\n\n\nGuess the number (1-100)!\nI will tell you if you need to go higher or lower.\n\n";
+    int guess=0;
+
+do{ 
+    
+    //place for user to guess number 
+    
+    cout<<"Your guess: ";
+    cin>> guess;
+    
+    //win
+
+    if (guess==ranNum) {
+        cout<<"\nCorrect! \nThe number was "<<ranNum<<"!";
+    } 
+    
+    //try again... go higher/lower
+    
+    else if (guess>ranNum) {
+        cout<<"Go lower\n\n"; 
+    } else {
+        cout<<"Go higher\n\n";
+    }
+}while (guess != ranNum);
+
+    //ask user play again
+
+cout<<"\n\nPlay again (y/n)?: ";
+cin>>answer;
+
+    //repeat game if yes 
+
+}while (answer==y);
+
+    return 0;
+}
