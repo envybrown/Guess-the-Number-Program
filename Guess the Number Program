@@ -6,28 +6,47 @@ using namespace std;
 
 int main()
 {
+    srand(time(0));
+    char answer;
+    
+do{
     
     //generate random number
     
-    srand(time(0));
     int ranNum = rand()%100 + 1;
     
     //present game to user 
-
-    cout<<"Guess the number (1-100)!\nI will tell you if you need to go higher or lower.\n\n";
+    
+    cout<<"\n\n\nGuess the number (1-100)!\nI will tell you if you need to go higher or lower.\n\n";
     int guess=0;
-
-do{ 
     
     //place for user to guess number 
+do{ 
     
+    do{ 
     cout<<"Your guess: ";
     cin>> guess;
+
+if (cin.fail()) {
+        cin.clear();                
+        cin.ignore(1000, '\n');     
+        cout << "Error. Please try again.\n\n";
+        continue;                    
+    }
+
+
+if (guess<1||guess>100) {
+cout<< "Error. Please try again.\n\n";
     
+}
+    
+    }  while (guess<1||guess>100);  
+
+
     //win
 
     if (guess==ranNum) {
-        cout<<"\nCorrect! The number was "<<ranNum<<"!";
+        cout<<"\nCorrect! \nThe number was "<<ranNum<<"!";
     } 
     
     //try again... go higher/lower
@@ -38,6 +57,15 @@ do{
         cout<<"Go higher\n\n";
     }
 }while (guess != ranNum);
+
+    //ask user play again
+
+cout<<"\n\nPlay again (y/n)?: ";
+cin>>answer;
+
+    //repeat game if yes 
+
+}while (answer=='y'||answer=='Y');
 
     return 0;
 }
